@@ -41,16 +41,16 @@ updateblob = () =>
 	let x1c =   0; let y1c =  r1;
 	let x1d =  r1; let y1d =   0;
 
-	//let t2 = ;
+	let t2 = Date.now() / 133;
 
-	let xa = x1a;// + r2 * sin(
-	let ya = y1a;
-	let xb = x1b;
-	let yb = y1b;
-	let xc = x1c;
-	let yc = y1c;
-	let xd = x1d;
-	let yd = y1d;
+	let xa = x1a + r2 * Math.cos(t2);
+	let ya = y1a + r2 * Math.sin(t2);
+	let xb = x1b + r2 * Math.cos(t2 + .5 * Math.PI);
+	let yb = y1b + r2 * Math.sin(t2 + .5 * Math.PI);
+	let xc = x1c + r2 * Math.cos(t2 + Math.PI);
+	let yc = y1c + r2 * Math.sin(t2 + Math.PI);
+	let xd = x1d + r2 * Math.cos(t2 + .75 * Math.PI);
+	let yd = y1d + r2 * Math.sin(t2 + .75 * Math.PI);
 
 	let dcurr = d.replace(/\$r1/g, r1)
 	             .replace(/\$xa/g, xa)
@@ -63,6 +63,8 @@ updateblob = () =>
 	             .replace(/\$yd/g, yd);
 
 	blob.setAttribute("d", dcurr);
+
+	window.requestAnimationFrame(updateblob);
 }
 
 updateblob();
