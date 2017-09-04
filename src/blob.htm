@@ -1,0 +1,43 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>blob</title>
+<style>
+svg
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<path id=blob fill="#000" stroke="none"/>
+</svg>
+<script>
+// Copyright (c) 2017, Erik Nordstrøm <erik@nordstroem.no>
+
+let r = 200;
+
+// m    0      $r
+const d = "\
+M 256 256 \
+m  $r   0 \
+q   0 -$r, -$r -$r \
+q -$r   0, -$r  $r \
+q   0  $r,  $r  $r \
+q  $r   0,  $r -$r \
+";
+
+const blob = document.getElementById('blob');
+
+console.log(blob);
+
+updateblob = () =>
+{
+	let dcurr = d.replace(/\$r/g, r);
+	blob.setAttribute("d", dcurr);
+}
+
+updateblob();
+</script>
