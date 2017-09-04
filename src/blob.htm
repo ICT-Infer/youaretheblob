@@ -43,12 +43,12 @@ updateblob = () =>
 
 	let cxa = cx1a + r2 * Math.cos(t2);
 	let cya = cy1a + r2 * Math.sin(t2);
-	let cxb = cx1b + r2 * Math.cos(t2 + .5 * Math.PI);
-	let cyb = cy1b + r2 * Math.sin(t2 + .5 * Math.PI);
-	let cxc = cx1c + r2 * Math.cos(t2 + Math.PI);
-	let cyc = cy1c + r2 * Math.sin(t2 + Math.PI);
-	let cxd = cx1d + r2 * Math.cos(t2 + .75 * Math.PI);
-	let cyd = cy1d + r2 * Math.sin(t2 + .75 * Math.PI);
+	let cxb = cx1b + r2 * Math.cos(t2 + Math.PI);
+	let cyb = cy1b + r2 * Math.sin(t2 + Math.PI);
+	let cxc = cx1c + r2 * Math.cos(t2);
+	let cyc = cy1c + r2 * Math.sin(t2);
+	let cxd = cx1d + r2 * Math.cos(t2 + Math.PI);
+	let cyd = cy1d + r2 * Math.sin(t2 + Math.PI);
 
 	let dcurr = d.replace(/\$r1/g, r1)
 	             .replace(/\$cxa/g, cxa).replace(/\$cya/g, cya)
