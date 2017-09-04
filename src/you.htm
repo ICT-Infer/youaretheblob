@@ -51,15 +51,15 @@ updateblob = () =>
 	}
 	else if (r2 < 100)
 	{
-		r2 += .5 * dr * r2 / 133;
+		r2 += dr * .5 * r2 / 133;
 	}
 	else if (r2 < 120)
 	{
-		r2 += .25 * dr * r2 / 133;
+		r2 += dr * .25 * r2 / 133;
 	}
 	else
 	{
-		r2 += .10 * dr * r2 / 133;
+		r2 += dr * .10 * r2 / 133;
 	}
 
 	let cx1a =   0; let cy1a = -r1;
