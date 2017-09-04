@@ -18,7 +18,8 @@ svg
 // Copyright (c) 2017, Erik Nordstrøm <erik@nordstroem.no>
 
 let r1 = 200;
-let r2 =  20;
+let r2 =   1;
+let dr =   1;
 
 // m    0      $r
 const d = "\
@@ -34,6 +35,34 @@ const blob = document.getElementById('blob');
 
 updateblob = () =>
 {
+	if (r2 >= 160)
+	{
+		r2 = 160;
+		dr = -1;
+	}
+	else if (r2 <= 1)
+	{
+		r2 = 1;
+		dr = 1;
+	}
+
+	if (r2 < 60)
+	{
+		r2 += dr * r2 / 133;
+	}
+	else if (r2 < 100)
+	{
+		r2 += .5 * dr * r2 / 133;
+	}
+	else if (r2 < 120)
+	{
+		r2 += .25 * dr * r2 / 133;
+	}
+	else
+	{
+		r2 += .10 * dr * r2 / 133;
+	}
+
 	let cx1a =   0; let cy1a = -r1;
 	let cx1b = -r1; let cy1b =   0;
 	let cx1c =   0; let cy1c =  r1;
