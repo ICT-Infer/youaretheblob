@@ -17,16 +17,17 @@ svg
 <script>
 // Copyright (c) 2017, Erik Nordstrøm <erik@nordstroem.no>
 
-let r = 200;
+let r1 = 200;
+let r2 =  20;
 
 // m    0      $r
 const d = "\
-M 256 256 \
-m  $r   0 \
-q   0 -$r, -$r -$r \
-q -$r   0, -$r  $r \
-q   0  $r,  $r  $r \
-q  $r   0,  $r -$r \
+M 256  256 \
+m $r1    0 \
+q $xa $ya, -$r1 -$r1 \
+q $xb $yb, -$r1  $r1 \
+q $xc $yc,  $r1  $r1 \
+q $xd $yd,  $r1 -$r1 \
 ";
 
 const blob = document.getElementById('blob');
@@ -35,7 +36,32 @@ console.log(blob);
 
 updateblob = () =>
 {
-	let dcurr = d.replace(/\$r/g, r);
+	let x1a =   0; let y1a = -r1;
+	let x1b = -r1; let y1b =   0;
+	let x1c =   0; let y1c =  r1;
+	let x1d =  r1; let y1d =   0;
+
+	//let t2 = ;
+
+	let xa = x1a;// + r2 * sin(
+	let ya = y1a;
+	let xb = x1b;
+	let yb = y1b;
+	let xc = x1c;
+	let yc = y1c;
+	let xd = x1d;
+	let yd = y1d;
+
+	let dcurr = d.replace(/\$r1/g, r1)
+	             .replace(/\$xa/g, xa)
+	             .replace(/\$ya/g, ya)
+	             .replace(/\$xb/g, xb)
+	             .replace(/\$yb/g, yb)
+	             .replace(/\$xc/g, xc)
+	             .replace(/\$yc/g, yc)
+	             .replace(/\$xd/g, xd)
+	             .replace(/\$yd/g, yd);
+
 	blob.setAttribute("d", dcurr);
 }
 
